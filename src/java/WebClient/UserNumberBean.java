@@ -1,4 +1,4 @@
-package guessNumber;
+package WebClient;
 
 import java.io.Serializable;
 import java.util.Random;

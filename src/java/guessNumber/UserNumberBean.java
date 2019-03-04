@@ -22,14 +22,14 @@ public class UserNumberBean implements Serializable {
     /** Creates a new instance of UserNumberBean */
     public UserNumberBean() {
         Random randomGR = new Random();
-        randomInt = new Integer(randomGR.nextInt(3));
+        randomInt = new Integer(randomGR.nextInt(9));
         System.out.println("Mattias's number: " + randomInt);
     }
 
     public Integer getUserNumber() {
         return userNumber;
     }
-    
+    //test
      public String getUserHej() {
         
          return "hej";
@@ -40,7 +40,7 @@ public class UserNumberBean implements Serializable {
     }
 
      public String getResponse() {
-      /* if ((userNumber != null) && (userNumber.compareTo(randomInt) == 0)) {
+       if ((userNumber != null) && (userNumber.compareTo(randomInt) == 0)) {
             //invalidate user session
             FacesContext context = FacesContext.getCurrentInstance();
             HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
@@ -52,7 +52,6 @@ public class UserNumberBean implements Serializable {
             // including HTML requires that you set escape="false" in view
             return "<p>Sorry, " + userNumber + " isn't it.</p>"
                     + "<p>Guess again...</p>";
-       } */
-      return this.response;
+       }
     }
 }

@@ -10,12 +10,6 @@
     <h:body>
         <span style="background-color: #FFFF00">Välkommen till JSF demo med meddelanden</span><br /><br/>
         Liten kort demo som visar att det går att skriva vanlig HTML också.<br/>
-        <div style="width: 25%; height: 50px; overflow: auto; scrollbar-face-color: #CE7E00; scrollbar-shadow-color: 
-             #FFFFFF; scrollbar-highlight-color: #6F4709; scrollbar-3dlight-color:#11111; scrollbar-darkshadow-color: #6F4709; 
-             scrollbar-track-color: #FFE8C1; scrollbar-arrow-color: #6F4709;">Your text will show here. And you can scroll 
-            down to go through all of it. You just have to add a sufficient amount of text to make the scrollbars show. 
-            Obviously, this is not enough,o let’s assume we have a little more to say. Eventually, the scrollbars will 
-            come in handy. That’s it! :)</div>
         <br/><br/>
         
         <f:view>
@@ -26,8 +20,28 @@
                     #{item.assignmentId}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Message</f:facet>
+                    <f:facet name="header">Issue ID</f:facet>
+                    #{item.issueId}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Employee ID</f:facet>
+                    #{item.employeeId}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Assignment Name</f:facet>
+                    #{item.assignmentName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Allotted Time</f:facet>
                     #{item.allottedTime}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Passed Time</f:facet>
+                    #{item.passedTime}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Assignment Comment</f:facet>
+                    #{item.comment}
                 </h:column>
             </h:dataTable>
         </f:view>

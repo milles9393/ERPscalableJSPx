@@ -1,6 +1,8 @@
 package WebClient;
 
+import WebClient.Models.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -11,47 +13,20 @@ import javax.servlet.http.HttpSession;
  * @author bondenn is the real god
  * @author nbuser
  */
-@ManagedBean(name = "UserNumberBean")
+@ManagedBean(name = "webClient")
 @SessionScoped
 public class WebCient implements Serializable {
+    
+    DBConnectionManager dbCon;
 
-    Integer randomInt;
-    Integer userNumber;
-    String response = "yey u BAJS it";
-
-    /** Creates a new instance of UserNumberBean */
+    /** Creates a new instance of the WebClient */
     public WebCient() {
-        Random randomGR = new Random();
-        randomInt = new Integer(randomGR.nextInt(9));
-        System.out.println("Mattias's number: " + randomInt);
-    }
-
-    public Integer getUserNumber() {
-        return userNumber;
-    }
-    //test
-     public String getUserHej() {
+        // Skapa DB Connection
+        this.dbCon = new DBConnectionManager();
         
-         return "hej";
     }
-
-    public void setUserNumber(Integer userNumber) {
-        this.userNumber = userNumber;
-    }
-
-     public String getResponse() {
-       if ((userNumber != null) && (userNumber.compareTo(randomInt) == 0)) {
-            //invalidate user session
-            FacesContext context = FacesContext.getCurrentInstance();
-            HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
-            session.invalidate();
-
-            return "Yay you got it! " + userNumber;
-        } else {
-
-            // including HTML requires that you set escape="false" in view
-            return "<p>Sorry, " + userNumber + " isn't it.</p>"
-                    + "<p>Guess again...</p>";
-       }
+    
+    public ArrayList<Issue> getAllIssues(){
+        return dbCon.getIssueList();
     }
 }

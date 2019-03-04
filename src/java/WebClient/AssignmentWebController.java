@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
  * @author bondenn is the real god
  * @author nbuser
  */
-@ManagedBean(name = "assignmentWeb")
+@ManagedBean(name = "AssignmentWeb")
 @SessionScoped
 public class AssignmentWebController implements Serializable {
     
@@ -21,14 +21,18 @@ public class AssignmentWebController implements Serializable {
     private int selectedIssue;
 
     /** Creates a new instance of the Assignment Web Client */
-    public AssignmentWebController(int selectedIssue) {
+    public AssignmentWebController() {
         // Skapa DB Connection
         this.dbCon = new DBConnectionManager();
-        this.selectedIssue = selectedIssue;
+        this.selectedIssue = 1043;
+        
+        System.out.println("test!");
+        //ArrayList<Assignment> test = getAllAssignments();
         
     }
     
     public ArrayList<Assignment> getAllAssignments(){
+        System.out.println("Detta kördes!");
         return dbCon.getAssignmentList(this.selectedIssue);
     }
 }

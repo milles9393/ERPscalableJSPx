@@ -10,7 +10,7 @@ public class Assignment {
     private String comment;
 
     public Assignment() {
-
+        //constructor
     }
 
     public int getAssignmentId() {

@@ -27,6 +27,8 @@ public class IssueWebController implements Serializable {
     }
     
     public ArrayList<Issue> getAllIssues(){
+        System.out.println("JHASDJJASDJAJDJAJSJDAJDJSAJ");
         return dbCon.getIssueList();
+        
     }
 }

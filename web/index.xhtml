@@ -25,7 +25,7 @@
         </f:view>
         
         <f:view>
-            <h:dataTable value="#{issueWeb.getAllIssues}" var="item"
+            <h:dataTable value="#{IssueWeb.allIssues}" var="item"
                          styleClass="table" headerClass="header" rowClasses="oddRows,evenRows">
                 <h:column>
                     <f:facet name="header">ID</f:facet>
@@ -34,13 +34,6 @@
                 <h:column>
                     <f:facet name="header">Message</f:facet>
                     #{item.issueId}
-                </h:column>
-                <h:column>
-                    <h:form>
-                        <h:commandButton action="#{messageBean.deleteMessage()}" value="Ta bort">
-                            <f:param name="id" value="#{item.id}" />
-                        </h:commandButton>
-                    </h:form>
                 </h:column>
             </h:dataTable>
         </f:view>

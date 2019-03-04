@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * @author bondenn is the real god
  * @author nbuser
  */
 @ManagedBean(name = "UserNumberBean")

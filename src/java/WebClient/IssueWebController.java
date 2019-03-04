@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
  * @author bondenn is the real god
  * @author nbuser
  */
-@ManagedBean(name = "webClient")
+@ManagedBean(name = "IssueWeb")
 @SessionScoped
-public class WebCient implements Serializable {
+public class IssueWebController implements Serializable {
     
     DBConnectionManager dbCon;
 
     /** Creates a new instance of the WebClient */
-    public WebCient() {
+    public IssueWebController() {
         // Skapa DB Connection
         this.dbCon = new DBConnectionManager();
         

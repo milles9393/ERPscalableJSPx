@@ -17,16 +17,18 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 public class AssignmentWebController implements Serializable {
     
-    DBConnectionManager dbCon;
+    private DBConnectionManager dbCon;
+    private int selectedIssue;
 
     /** Creates a new instance of the Assignment Web Client */
-    public AssignmentWebController() {
+    public AssignmentWebController(int selectedIssue) {
         // Skapa DB Connection
         this.dbCon = new DBConnectionManager();
+        this.selectedIssue = selectedIssue;
         
     }
     
-    public ArrayList<Issue> getAllIssues(){
-        return dbCon.getIssueList();
+    public ArrayList<Assignment> getAllAssignments(){
+        return dbCon.getAssignmentList(this.selectedIssue);
     }
 }

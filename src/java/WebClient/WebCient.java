@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
  */
 @ManagedBean(name = "UserNumberBean")
 @SessionScoped
-public class UserNumberBean implements Serializable {
+public class WebCient implements Serializable {
 
     Integer randomInt;
     Integer userNumber;
     String response = "yey u BAJS it";
 
     /** Creates a new instance of UserNumberBean */
-    public UserNumberBean() {
+    public WebCient() {
         Random randomGR = new Random();
         randomInt = new Integer(randomGR.nextInt(9));
         System.out.println("Mattias's number: " + randomInt);

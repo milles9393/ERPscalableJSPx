@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link type="text/css" rel="stylesheet" href="" />
+    </h:head>
+    <h:body>
+        <span style="background-color: #FFFF00">Välkommen till JSF demo med meddelanden</span><br /><br/>
+        Liten kort demo som visar att det går att skriva vanlig HTML också.<br/>
+        <div style="width: 25%; height: 50px; overflow: auto; scrollbar-face-color: #CE7E00; scrollbar-shadow-color: 
+             #FFFFFF; scrollbar-highlight-color: #6F4709; scrollbar-3dlight-color:#11111; scrollbar-darkshadow-color: #6F4709; 
+             scrollbar-track-color: #FFE8C1; scrollbar-arrow-color: #6F4709;">Your text will show here. And you can scroll 
+            down to go through all of it. You just have to add a sufficient amount of text to make the scrollbars show. 
+            Obviously, this is not enough,o let’s assume we have a little more to say. Eventually, the scrollbars will 
+            come in handy. That’s it! :)</div>
+        <br/><br/>
+        <f:view>
+            <h:form>
+                Meddelande: <h:inputText value="#{messageBean.message}"></h:inputText>
+                <h:commandButton action="#{messageBean.saveMessage()}" value="Lägg till"></h:commandButton>
+            </h:form>
+        </f:view>
+        
+        <f:view>
+            <h:dataTable value="#{issueWeb.getAllIssues}" var="item"
+                         styleClass="table" headerClass="header" rowClasses="oddRows,evenRows">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{item.issueId}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Message</f:facet>
+                    #{item.issueId}
+                </h:column>
+                <h:column>
+                    <h:form>
+                        <h:commandButton action="#{messageBean.deleteMessage()}" value="Ta bort">
+                            <f:param name="id" value="#{item.id}" />
+                        </h:commandButton>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </f:view>
+
+
+        
+    </h:body>
+</html>
+

@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <link type="text/css" rel="stylesheet" href="resources/css/messageTable.css" />
+        <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
     </h:head>
     <h:body>
         <span style="background-color: #FFFF00">Välkommen till JSF demo med meddelanden</span><br /><br/>
@@ -16,7 +16,7 @@
             <h:dataTable value="#{AssignmentWeb.allAssignments}" var="item"
                          styleClass="table" headerClass="header" rowClasses="oddRows,evenRows">
                 <h:column>
-                    <f:facet name="header">ID</f:facet>
+                    <f:facet name="header">Assignment ID</f:facet>
                     #{item.assignmentId}
                 </h:column>
                 <h:column>
@@ -42,6 +42,11 @@
                 <h:column>
                     <f:facet name="header">Assignment Comment</f:facet>
                     #{item.comment}
+                </h:column>
+                <h:column>
+                    <h:form>
+                        <h:commandButton value="Add Hours" type="submit" action="#{user.goLoginPage}" />
+                    </h:form>
                 </h:column>
             </h:dataTable>
         </f:view>

@@ -3,11 +3,8 @@ package WebClient;
 import WebClient.Models.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Random;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 /**
  * @author bondenn is the real god
@@ -25,9 +22,6 @@ public class AssignmentWebController implements Serializable {
         // Skapa DB Connection
         this.dbCon = new DBConnectionManager();
         this.selectedIssue = 1043;
-        
-        System.out.println("test!");
-        //ArrayList<Assignment> test = getAllAssignments();
         
     }
     

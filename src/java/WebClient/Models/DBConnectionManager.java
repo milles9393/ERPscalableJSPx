@@ -18,6 +18,7 @@ public class DBConnectionManager {
 
     //Constructor, is called when a DBConnectionModel object is created.
     public DBConnectionManager(){
+        System.out.println("DBConnectionManager Object is being created...");
         //Establish connection do the database
         try{
             Class.forName(dbDriver);
@@ -57,7 +58,7 @@ public class DBConnectionManager {
         ResultSet rs = null;
         String sql = "SELECT assignmentId, issueId, employeeId, name, allottedTime, passedTime, comment FROM Assignment WHERE issueId = " + issueId;
         ArrayList<Assignment> test = new ArrayList<>();
-
+        
         try{
             Statement stmt = con.createStatement();
             rs = stmt.executeQuery(sql);

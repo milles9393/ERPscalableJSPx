@@ -12,6 +12,19 @@ public class Assignment {
     public Assignment() {
         //constructor
     }
+    
+        boolean editable;
+		
+	public boolean isEditable() {
+		return editable;
+	}
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
+    
+        
+        //end of updates
+        
 
     public int getAssignmentId() {
 

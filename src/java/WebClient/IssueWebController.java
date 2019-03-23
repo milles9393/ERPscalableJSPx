@@ -18,6 +18,8 @@ import javax.servlet.http.HttpSession;
 public class IssueWebController implements Serializable {
     
     DBConnectionManager dbCon;
+    private ArrayList<Issue> issues;
+
 
     /** Creates a new instance of the WebClient */
     public IssueWebController() {
@@ -26,9 +28,28 @@ public class IssueWebController implements Serializable {
         
     }
     
+     public String editAction(Issue issues) {
+	    
+	issues.setEditable(true);
+	return null;
+     }
+     
+      public void editAssignment(){
+        System.out.println("this was called!");
+    }
+    
     public ArrayList<Issue> getAllIssues(){
         System.out.println("JHASDJJASDJAJDJAJSJDAJDJSAJ");
         return dbCon.getIssueList();
         
     }
+    
+       public void saveStatus(Issue item, String statusValue){
+        //Get updated value from textbox, try to parse as int, then update the database.
+        
+        this.dbCon.updateIssueStatus(item.getIssueId(), statusValue );
+        System.out.println(item.getIssueId()+ " : " + statusValue);
+        System.out.println("this was called!");
+    }
+    
 }

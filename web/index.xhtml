@@ -5,7 +5,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <link type="text/css" rel="stylesheet" href="" />
+        
+              <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+
     </h:head>
     <h:body>
         <span style="background-color: #FFFF00">Välkommen till JSF demo med meddelanden</span><br /><br/>
@@ -18,15 +20,18 @@
             come in handy. That’s it! :)</div>
         <br/><br/>
         <f:view>
-            <h:form>
+            
                 Meddelande: <h:inputText value="#{messageBean.message}"></h:inputText>
                 <h:commandButton action="#{messageBean.saveMessage()}" value="Lägg till"></h:commandButton>
-            </h:form>
+            
         </f:view>
         
         <f:view>
+            <h:form>
             <h:dataTable value="#{IssueWeb.allIssues}" var="item"
                          styleClass="table" headerClass="header" rowClasses="oddRows,evenRows">
+                          
+
                 <h:column>
                     <f:facet name="header">ID</f:facet>
                     #{item.issueId}
@@ -34,8 +39,26 @@
                 <h:column>
                     <f:facet name="header">Message</f:facet>
                     #{item.issueId}
+            
                 </h:column>
+                
+                <h:column>
+                    <f:facet name="header">staus</f:facet>
+    
+                    <h:selectOneMenu value="#{item.status}" binding="#{statusNamn}">
+                        <f:selectItem itemValue="Open"/>
+                        <f:selectItem itemValue="In progress" />
+                        <f:selectItem itemValue="Completed" />
+                    </h:selectOneMenu>
+               </h:column>     
+                
+                <h:column>
+                    <h:commandButton value="Save statuz" type="submit" action="#{IssueWeb.saveStatus(item,statusNamn.value)}"/>
+
+                </h:column>
+
             </h:dataTable>
+                </h:form>
         </f:view>
 
 

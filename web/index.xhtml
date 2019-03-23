@@ -43,20 +43,21 @@
                 </h:column>
                 
                 <h:column>
-                    <f:facet name="header">staus</f:facet>
+                    <f:facet name="header">status</f:facet>
     
                     <h:selectOneMenu value="#{item.status}" binding="#{statusNamn}">
                         <f:selectItem itemValue="Open"/>
                         <f:selectItem itemValue="In progress" />
                         <f:selectItem itemValue="Completed" />
                     </h:selectOneMenu>
-               </h:column>     
-                
+                </h:column>     
                 <h:column>
-                    <h:commandButton value="Save statuz" type="submit" action="#{IssueWeb.saveStatus(item,statusNamn.value)}"/>
-
+                    <h:commandButton value="Save status" type="submit" action="#{IssueWeb.saveStatus(item,statusNamn.value)}"/>
                 </h:column>
-
+                <h:column>
+                    <h:commandButton value="Edit Assignments" type="submit" action="#{AssignmentWeb.setSelectedIssueId(item)}"/>
+                </h:column>
+                
             </h:dataTable>
                 </h:form>
         </f:view>

@@ -119,7 +119,6 @@ public class DBConnectionManager {
             updateIssueStmt.executeUpdate();
         } catch (Exception e) {
             System.out.println("error updating!!!! --->: " + e);
-
         }
     }
 

@@ -25,7 +25,7 @@ public class IssueWebController implements Serializable {
     public IssueWebController() {
         // Skapa DB Connection
         this.dbCon = new DBConnectionManager();
-        
+        this.issues = dbCon.getIssueList();
     }
     
      public String editAction(Issue issues) {
@@ -39,12 +39,11 @@ public class IssueWebController implements Serializable {
     }
     
     public ArrayList<Issue> getAllIssues(){
-        System.out.println("JHASDJJASDJAJDJAJSJDAJDJSAJ");
-        return dbCon.getIssueList();
+        return issues;
         
     }
     
-       public void saveStatus(Issue item, String statusValue){
+    public void saveStatus(Issue item, String statusValue){
         //Get updated value from textbox, try to parse as int, then update the database.
         
         this.dbCon.updateIssueStatus(item.getIssueId(), statusValue );

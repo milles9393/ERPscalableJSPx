@@ -16,6 +16,7 @@ public class AssignmentWebController implements Serializable {
     
     private DBConnectionManager dbCon;
     private int selectedIssue;
+    private int selectedAssignmentId = 0;
     private ArrayList<Assignment> assignments;
 
     /** Creates a new instance of the Assignment Web Client */
@@ -33,6 +34,13 @@ public class AssignmentWebController implements Serializable {
         
     }
     
+    public void setSelectedAssignmentId(int i){
+        this.selectedAssignmentId = i;
+    }
+    public int getSelectedAssignmentId(){
+        return this.selectedAssignmentId;
+    }
+    
     public void getAssignments(int issue){
         
     }
@@ -41,7 +49,11 @@ public class AssignmentWebController implements Serializable {
         return assignments;
     }
     
-    public void editAssignment(){
+    public void saveAssignment(Assignment item, int test){
+        //Get updated value from textbox, try to parse as int, then update the database.
+        
+        this.dbCon.updateAssignmentTime(item.getAssignmentId(), test);
+        System.out.println(item.getAssignmentId() + " : " + test);
         System.out.println("this was called!");
     }
 }

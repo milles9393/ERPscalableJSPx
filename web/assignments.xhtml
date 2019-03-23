@@ -13,8 +13,10 @@
         <br/><br/>
         
         <f:view>
+            <h:form>
             <h:dataTable value="#{AssignmentWeb.allAssignments}" var="item"
                          styleClass="table" headerClass="header" rowClasses="oddRows,evenRows">
+                
                 <h:column>
                     <f:facet name="header">Assignment ID</f:facet>
                     #{item.assignmentId}
@@ -37,18 +39,17 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Passed Time</f:facet>
-                    #{item.passedTime}
+                    <h:inputText value="#{item.passedTime}" binding="#{test}" style="width:55%;text-align: center"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Assignment Comment</f:facet>
                     #{item.comment}
                 </h:column>
                 <h:column>
-                    <h:form>
-                        <h:commandButton value="Add Hours" type="submit" action="#{AssignmentWeb.editAssignment}" />
-                    </h:form>
+                    <h:commandButton value="Save Hours" type="submit" action="#{AssignmentWeb.saveAssignment(item,test.value)}"/>
                 </h:column>
             </h:dataTable>
+            </h:form>
         </f:view>
     </h:body>
 </html>

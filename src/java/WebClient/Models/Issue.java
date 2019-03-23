@@ -15,7 +15,7 @@ public class Issue {
         this.issueId = id;
         this.skillId = skill;
         this.status = status;
-        this. comment = comment;
+        this.comment = comment;
         this.failComment = failComment;
     }
 

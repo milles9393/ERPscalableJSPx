@@ -4,13 +4,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Assignments</title>
         <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
     </h:head>
     <h:body>
-        <span style="background-color: #FFFF00">Välkommen till JSF demo med meddelanden</span><br /><br/>
-        Liten kort demo som visar att det går att skriva vanlig HTML också.<br/>
-        <br/><br/>
+        <h:form>
+            <h:commandButton value="Return to Issues" action="index.xhtml" style="height: 35px; font-size:25px;margin-left:45px;"></h:commandButton>
+        </h:form>
+        <span id="spantest">This table shows the assignments of the issue you've selected on the last page.</span><br /><br/>
+        <br/>
         
         <f:view>
             <h:form>

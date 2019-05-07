@@ -105,3 +105,13 @@ tr:hover {
     margin-left: 5%;
     width: 90%;
 }
+
+#spantest {
+    float:left;
+    position: relative;
+    padding: 0px;
+    margin-left: 45px;
+    width: auto;
+    text-align: center;
+    font-size: 25px;
+}
